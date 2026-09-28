@@ -32,7 +32,7 @@ poly2_baseline_c_streamlit/
 ├── requirements.txt
 ├── README.md
 │
-└── poly2_baseline_c_models_v4/
+└── poly2_baseline_c_models_v8/
     ├── catboost_L_BaselineC.cbm
     ├── catboost_A_BaselineC.cbm
     ├── catboost_B_BaselineC.cbm
