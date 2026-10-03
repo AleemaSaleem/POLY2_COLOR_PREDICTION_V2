@@ -3316,14 +3316,25 @@ def build_static_features(trajectory, dcs):
         )
 
         if pd.notna(safe_tpd):
-
             for tag, stats in process_summary.items():
-
+            
                 clean = tag.replace("-", "_")
+            
+                if pd.notna(safe_delta):
+                    row[
+                        f"CTRL_RESPONSE_{clean}_PER_TPD_CHANGE"
+                    ] = stats["DELTA"] / safe_delta
+                else:
+                    row[
+                        f"CTRL_RESPONSE_{clean}_PER_TPD_CHANGE"
+                    ] = np.nan
+            # for tag, stats in process_summary.items():
 
-                row[
-                    f"CTRL_RATIO_{clean}_MEAN_PER_TPD"
-                ] = stats["MEAN"] / safe_tpd
+            #     clean = tag.replace("-", "_")
+
+            #     row[
+            #         f"CTRL_RATIO_{clean}_MEAN_PER_TPD"
+            #     ] = stats["MEAN"] / safe_tpd
 
         tpd_delta = row.get("CTRL_TPD_DELTA", np.nan)
 
